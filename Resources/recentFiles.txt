@@ -1,11 +1,1 @@
-C:\Users\kaiwen\Downloads\test.ch4
-C:\Users\kaiwen\Downloads\newmolecule.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\out\artifacts\CH4_jar\Resources\methane.ch4
-C:\Users\kaiwen\Downloads\meloclue.ch4
-C:\Users\kaiwen\Downloads\test1.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\out\artifacts\CH4_jar\Resources\methanamine.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\src\sample\View\resources\ethanoic acid.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\src\sample\View\resources\methane.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\src\sample\View\resources\methanamide.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\src\sample\View\resources\methylamine.ch4
-C:\Users\kaiwen\Desktop\NUSH\cs\CH4\src\sample\View\resources\methanol.ch4
+

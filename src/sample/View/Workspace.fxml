@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.WorkspaceController">
+   <top>
+      <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpenFile" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveFile" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleQuit" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Preferences">
+               <items>
+                  <Menu mnemonicParsing="false" text="Colour Scheme">
+                    <items>
+                      <MenuItem fx:id="lightMenuItem" mnemonicParsing="false" onAction="#handleLightMode" text="Light" />
+                        <MenuItem fx:id="darkMenuItem" mnemonicParsing="false" onAction="#handleDarkMode" text="Dark" />
+                    </items>
+                  </Menu>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Search">
+                     <content>
+                        <HBox>
+                           <children>
+                              <ImageView fx:id="searchImgView" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleSearch" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <TextField fx:id="searchTf" promptText="Search" />
+                           </children>
+                        </HBox>
+                     </content>
+                  </CustomMenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleAboutProgram" text="About Program" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="525.0" prefWidth="179.0" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion prefHeight="338.0" prefWidth="179.0">
+              <panes>
+                  <TitledPane prefHeight="268.0" prefWidth="179.0" text="Atoms">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="160.0">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="120.0" text="Right-click on an atom to see more options." wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <FlowPane prefHeight="202.0" prefWidth="167.0">
+                                 <children>
+                                    <VBox prefHeight="82.0" prefWidth="65.0">
+                                       <children>
+                                          <StackPane onMouseClicked="#handleAddCarbon" prefHeight="52.0" prefWidth="52.0">
+                                             <children>
+                                                <Circle fx:id="carbonCircle" fill="#1f93ff" radius="24.0" stroke="BLACK" strokeLineJoin="BEVEL" strokeType="INSIDE" />
+                                             </children>
+                                          </StackPane>
+                                          <Label alignment="CENTER" text="Carbon">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="82.0" prefWidth="65.0">
+                                       <children>
+                                          <StackPane onMouseClicked="#handleAddHydrogen" prefHeight="52.0" prefWidth="52.0">
+                                             <children>
+                                                <Circle fx:id="hydrogenCircle" fill="#fc5656" radius="24.0" stroke="BLACK" strokeLineJoin="BEVEL" strokeType="INSIDE" />
+                                             </children>
+                                          </StackPane>
+                                          <Label alignment="CENTER" text="Hydrogen">
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="82.0" prefWidth="65.0">
+                                       <children>
+                                          <StackPane onMouseClicked="#handleAddNitrogen" prefHeight="52.0" prefWidth="52.0">
+                                             <children>
+                                                <Circle fx:id="nitrogenCircle" fill="#9e57fa" radius="24.0" stroke="BLACK" strokeLineJoin="BEVEL" strokeType="INSIDE" />
+                                             </children>
+                                          </StackPane>
+                                          <Label alignment="CENTER" text="Nitrogen">
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="82.0" prefWidth="65.0">
+                                       <children>
+                                          <StackPane onMouseClicked="#handleAddOxygen" prefHeight="52.0" prefWidth="52.0">
+                                             <children>
+                                                <Circle fx:id="oxygenCircle" fill="#faf157" radius="24.0" stroke="BLACK" strokeLineJoin="BEVEL" strokeType="INSIDE" />
+                                             </children>
+                                          </StackPane>
+                                          <Label alignment="CENTER" text="Oxygen">
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane prefHeight="147.0" prefWidth="162.0" text="Legend (Bonds)">
+                     <content>
+                        <VBox prefHeight="121.0" prefWidth="160.0">
+                           <children>
+                              <HBox prefHeight="33.0" prefWidth="141.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="40.0" text="Single" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Line fx:id="singleBondLine" endX="100.0" startX="152.626220703125" startY="-2.0404608249664307" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="12.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="33.0" prefWidth="141.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="40.0" text="Double" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Line fx:id="doubleBondLine" endX="100.0" startX="152.626220703125" startY="-2.0404608249664307">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="12.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="33.0" prefWidth="141.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="40.0" text="Triple" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Line fx:id="tripleBondLine" endX="100.0" startX="152.626220703125" startY="-2.0404608249664307">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="12.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                <TitledPane text="Experiments">
+                     <content>
+                        <AnchorPane prefHeight="111.0" prefWidth="177.0">
+                           <children>
+                              <Slider fx:id="heatSlider" layoutX="17.0" layoutY="23.0" />
+                              <Button layoutX="17.0" layoutY="68.0" mnemonicParsing="false" onAction="#toggleHeat" text="Heat On/Off" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+            <Button mnemonicParsing="false" onAction="#handleClearAll" text="Clear All Atoms">
+               <VBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleDetermineProperties" text="Determine Properties">
+               <VBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="553.0" prefWidth="511.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <VBox prefHeight="548.0" prefWidth="227.0" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion>
+               <panes>
+                  <TitledPane expanded="false" text="Functional Groups">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="alkaneLabel" text="0" />
+                                    <Label text="Alkane">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="alkeneLabel" text="0" />
+                                    <Label text="Alkene">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="alkyneLabel" text="0" />
+                                    <Label text="Alkyne">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="alcoholLabel" text="0" />
+                                    <Label text="Alcohol">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="etherLabel" text="0" />
+                                    <Label text="Ether">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="aldehydeLabel" text="0" />
+                                    <Label text="Aldehyde">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="ketoneLabel" text="0" />
+                                    <Label text="Ketone">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="acidLabel" text="0" />
+                                    <Label text="Carboxylic Acid">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="esterLabel" text="0" />
+                                    <Label text="Ester">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="amineLabel" text="0" />
+                                    <Label text="Amine">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="amideLabel" text="0" />
+                                    <Label text="Amide">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="7.0" prefWidth="205.0">
+                                 <children>
+                                    <Label fx:id="nitrileLabel" text="0" />
+                                    <Label text="Nitrile">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane expanded="false" text="Reactions">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <CheckBox fx:id="neutralisationCheckBox" disable="true" mnemonicParsing="false" text="Neutralisation">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="oxidationCheckBox" disable="true" mnemonicParsing="false" text="Oxidation">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="additionCheckBox" disable="true" mnemonicParsing="false" text="Addition rxn/polymerisation">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="substitutionCheckBox" disable="true" mnemonicParsing="false" text="Substitution">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="condensationCheckBox" disable="true" mnemonicParsing="false" text="Condensation rxn/polymerisation">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="dehydrationCheckBox" disable="true" mnemonicParsing="false" text="Dehydration">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="esterificationCheckBox" disable="true" mnemonicParsing="false" text="Esterification">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <Label text="*rxn stands for reaction" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane expanded="false" text="Properties">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Intermolecular Forces of Attraction:">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <CheckBox fx:id="ldfCheckBox" disable="true" mnemonicParsing="false" text="London Dispersion Forces (LDF)">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="hbCheckBox" disable="true" mnemonicParsing="false" text="Hydrogen Bonding (HB)">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="ddfCheckBox" disable="true" mnemonicParsing="false" text="Dipole-Dipole Forces (DDF)">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <Label text="Soluble in water (H2O)">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" top="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <RadioButton fx:id="h2oYesRadioButton" disable="true" mnemonicParsing="false" text="Yes">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="h2oNoRadioButton" disable="true" mnemonicParsing="false" text="No">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <Label text="Soluble in organic solvents">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" top="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <RadioButton fx:id="organicYesRadioButton" disable="true" mnemonicParsing="false" text="Yes">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="organicNoRadioButton" disable="true" mnemonicParsing="false" text="No" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="104.0" prefWidth="610.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="320.0" layoutY="-1.0" prefHeight="31.0" prefWidth="233.0">
+               <children>
+                  <Label fx:id="amuLabel">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="g/mol">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <TextFlow fx:id="formulaTextFlow" layoutX="320.0" layoutY="45.00000000000001" prefHeight="57.0" prefWidth="215.0" AnchorPane.bottomAnchor="1.6666666666666572" AnchorPane.leftAnchor="320.0">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </TextFlow>
+         </children></AnchorPane>
+   </bottom>
+</BorderPane>
